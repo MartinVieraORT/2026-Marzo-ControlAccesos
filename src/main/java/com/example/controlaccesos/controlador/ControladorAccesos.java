@@ -20,6 +20,7 @@ public class ControladorAccesos {
 
     @GetMapping("/lista")
     public List<Usuario> usuariosHabilitadosConAccesoMayorA(@RequestParam int minutos) {
+        //TODO: Implementar lógica para filtrar usuarios habilitados con acceso mayor a los minutos especificados
         return null; // Implementación pendiente
     }
 
