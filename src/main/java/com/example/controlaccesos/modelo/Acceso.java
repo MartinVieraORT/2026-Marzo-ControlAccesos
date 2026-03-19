@@ -7,4 +7,10 @@ import lombok.Data;
 public class Acceso {
     private Timestamp entrada;
     private Timestamp salida;
+
+    public long getDuracionEnMinutos() {
+        return (this.salida.getTime() - this.entrada.getTime())/ (1000 * 60);
+    }
+
 }
+

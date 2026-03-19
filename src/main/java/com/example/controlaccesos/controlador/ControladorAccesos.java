@@ -1,5 +1,6 @@
 package com.example.controlaccesos.controlador;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +21,16 @@ public class ControladorAccesos {
 
     @GetMapping("/lista")
     public List<Usuario> usuariosHabilitadosConAccesoMayorA(@RequestParam int minutos) {
-        //TODO: Implementar lógica para filtrar usuarios habilitados con acceso mayor a los minutos especificados
-        return null; // Implementación pendiente
+        List<Usuario> usuarios = serviciosUsuario.getUsuarios();
+
+        List<Usuario> resultado = new ArrayList<>();
+        for (Usuario u : usuarios) {
+            // Delegamos la decisión al experto (Usuario)
+            if (u.cumpleCondicionAcceso(minutos)) {
+                resultado.add(u);
+            }
+        }
+        return resultado;        
     }
 
 }
