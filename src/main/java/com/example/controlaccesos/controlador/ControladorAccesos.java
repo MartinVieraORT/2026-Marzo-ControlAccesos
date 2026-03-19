@@ -25,7 +25,6 @@ public class ControladorAccesos {
 
         List<Usuario> resultado = new ArrayList<>();
         for (Usuario u : usuarios) {
-            // Delegamos la decisión al experto (Usuario)
             if (u.cumpleCondicionAcceso(minutos)) {
                 resultado.add(u);
             }
